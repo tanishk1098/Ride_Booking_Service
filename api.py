@@ -3,13 +3,13 @@ from fastapi.templating import Jinja2Templates
 from connection import send_to_event_hub, generate_uber_ride_confirmation
 
 app = FastAPI()
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="templates")#"My HTML files are inside a folder called templates."
 
-@app.get("/")
+@app.get("/")#It's defining a GET endpoint.
 def booking_home(request: Request):
     return templates.TemplateResponse("home.html", {"request": request})
 
-
+#/ means the root URL.
 @app.get("/book")
 def book_ride(request: Request):  
     ride = generate_uber_ride_confirmation()

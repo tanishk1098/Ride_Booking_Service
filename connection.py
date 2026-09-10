@@ -17,7 +17,6 @@ EVENT_HUBNAME = os.getenv("EVENT_HUBNAME")
 
 
 
-
 def send_to_event_hub(ride_data=None, batch_size=1):
 
     try:
@@ -32,7 +31,6 @@ def send_to_event_hub(ride_data=None, batch_size=1):
         
         # Create batch of events
         event_batch = producer.create_batch()
-
             
         # Create event with ride data 
         event = EventData(ride_json)
@@ -58,13 +56,13 @@ if __name__ == "__main__":
     print("=" * 80)
     print("SINGLE RIDE CONFIRMATION")
     print("=" * 80)
-    ride = generate_uber_ride_confirmation()
-    print(json.dumps(ride, indent=2))
-
+    ride = generate_uber_ride_confirmation() #first fxn call
+    print(json.dumps(ride, indent=2))#json.dumps() converts the Python dictionary into a nicely formatted JSON string.
+    #indent=2 simply makes the output easier to read basically it is indentation level of 2 spaces for each nested level in the JSON structure.
     
     print("\n" + "=" * 80)
     print("SENDING SINGLE RIDE TO EVENT HUB")
-    result = send_to_event_hub(ride)
+    result = send_to_event_hub(ride)#second fxn call
     print(f"Single ride sent to Event Hub: {result}")
     
     

@@ -10,5 +10,6 @@ wheels/
 .venv
 
 .env
+.DS_Store
 
 not_for_you/
