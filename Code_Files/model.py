@@ -109,7 +109,6 @@ dp.create_auto_cdc_flow(
 @dp.view
 def fact_view():
     df = spark.readStream.table("uber.bronze.silver_obt")
-    df = spark.readStream.table("uber.bronze.silver_obt")
     df = df.select("ride_id","pickup_city_id","payment_method_id","driver_id","passenger_id","vehicle_id","distance_miles","duration_minutes","base_fare","distance_fare","time_fare","surge_multiplier","total_fare","tip_amount","rating","base_rate","per_mile","per_minute")
     return df
 
